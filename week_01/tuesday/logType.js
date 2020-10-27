@@ -7,6 +7,8 @@ function logType(par) {
         console.log("string!");
     } else if (typeof par === "boolean") {
         console.log("boolean!");
+    } else if (par === null){
+        console.log("null!");
     } else if (typeof par === "object") {
         console.log("Object!");
     } else if (typeof par === "undefined") {
@@ -21,11 +23,8 @@ function logType(par) {
         console.log("I have no idea!");
     }
 }
-var object = NaN;
-
-var arr = [];
-
-logType(3);
 
 
-//"null!"
+logType();
+
+
