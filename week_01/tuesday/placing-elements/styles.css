@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    padding: 10px;
+    border: 1px black dashed;
+    background-color: grey;
+    height: 70px;
+    margin: 20px;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    background: orange;
+    float: left;
+}
+
+#menu {
+    height: 50px;
+    width: 50px;
+    background: pink;
+    float: right;
+}
+
+body {
+    background-color: dimgrey;
+    color: white;
+}
+
+.container {
+    width: 80vw;
+    height: 1500px;
+    background-color: tomato;
+    border: black solid 2px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h3 {
+    margin: 0;
+    position: absolute;
+}
+
+h3:nth-child(1) {
+    color: chartreuse;
+    top: 0;
+    left: 0;
+}
+h3:nth-child(2) {
+    color: chartreuse;
+    top: 0;
+    right: 0;
+}
+h3:nth-child(3) {
+    color: chartreuse;
+    bottom: 0;
+    left: 0;
+}
+h3:nth-child(4) {
+    color: chartreuse;
+    bottom: 0;
+    right: 0;
+}
+
+img {
+    width:300px;
+    position:fixed;
+    top:400px;
+    left:350px;
+    z-index: 1;
+}
