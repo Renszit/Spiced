@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: grey;
+    color: black;
+    margin: 0;
+}
+
+header {
+    background-color: white;
+    height: 70px;
+    padding: 15px;
+}
+
+#logo {
+    float: left;
+    height: 35px;
+}
+
+#menu {
+    height: 35px;
+    width: 35px;
+    float: right;
+}
