@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: lightgrey;
     color: black;
     margin: 0;
 }
@@ -23,4 +23,9 @@ header {
     height: 35px;
     width: 35px;
     float: right;
+}
+
+.bottom {
+    background-color: grey;
+    height: 120px;   
 }
