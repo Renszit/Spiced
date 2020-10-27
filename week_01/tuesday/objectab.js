@@ -6,4 +6,7 @@ var a = {
 
 var b = {};
 
+for (var obj in a) {
+    b[a[obj]] = obj;
+}
 console.log(b);
