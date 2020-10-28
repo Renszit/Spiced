@@ -27,5 +27,26 @@ header {
 
 .bottom {
     background-color: grey;
-    height: 120px;   
+    height: 120px;
 }
+
+.left {
+    float: left;
+    padding: 10px;
+}
+
+.right {
+    float: right;
+    padding: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    background-color: grey;
+    width: 100%;
+    height: 150px;
+    padding-left: 350px;
+    padding-right: 350px;
+}
+
