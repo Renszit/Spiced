@@ -1,6 +1,6 @@
 function sum() {
     var a = 0;
-    for (var i=0; i < arguments.length; i++) {
+    for (var i = 0; i < arguments.length; i++) {
         a += arguments[i];
     }
     return a;
