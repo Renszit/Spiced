@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: greenyellow;
+}
+
+header {
+    text-align: center;
+}
+
+img {
+    height: 200px;
+    animation: move 8s alternate infinite;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.rowing {
+    position: absolute;
+    top: 400px;
+    left: 300px;
+    font-size: 300px;
+    animation: slide 10s alternate infinite;
+}
+
+img[alt="cool dock"] {
+    float: right;
+}
+
+img[alt="another dock"] {
+    float: left;
+}
+
+img:hover,
+nav:hover {
+    background-color: red;
+    border: 2px solid whitesmoke;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-900px) rotate(270deg);
+    }
+    100% {
+        transform: translateX(900px) rotate(270deg);
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(200px, 400px);
+    }
+    75% {transform: translate(-200px,400px);}
+    100% {
+        transform: translate(0, 0);
+    }
+}
