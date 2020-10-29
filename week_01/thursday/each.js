@@ -1,7 +1,7 @@
-function each(objOrArr, callback) {
-    
+function each() {
 }
 
+ 
 
 // excercise code:
 each({
