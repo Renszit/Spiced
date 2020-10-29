@@ -3,8 +3,6 @@
 }
 
 body {
-    background-color: lightgrey;
-    color: black;
     margin: 0;
 }
 
@@ -12,6 +10,7 @@ header {
     background-color: white;
     height: 70px;
     padding: 15px;
+    width: 100%;
 }
 
 #logo {
@@ -19,34 +18,47 @@ header {
     height: 35px;
 }
 
-#menu {
+#hamburgermenu {
     height: 35px;
     width: 35px;
     float: right;
 }
 
-.bottom {
-    background-color: grey;
-    height: 120px;
+#background {
+    position: relative;
+    width: 100%;
 }
 
-.left {
-    float: left;
-    padding: 10px;
+main {
+    width: 100%;
+    position: relative;
 }
 
-.right {
-    float: right;
-    padding: 10px;
+.text {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 99;
+    top: 30%
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: white;
+    font-size: 30px;
 }
 
 footer {
+    background-color: grey;
     position: absolute;
     bottom: 0px;
-    background-color: grey;
-    width: 100%;
-    height: 150px;
-    padding-left: 350px;
-    padding-right: 350px;
 }
 
+button {
+    background-color: yellow;
+    width: 150px;
+    height: 40px;
+    border-radius: 60px/50px;
+    border: 4px #AAAA2B solid  
+}
