@@ -39,19 +39,30 @@ main {
     text-align: center;
     width: 100%;
     z-index: 99;
-    top: 30%
+    top: 30%;
 }
 
 h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-style: italic;
     color: white;
     font-size: 30px;
 }
 
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;    
+}
+
 footer {
     background-color: grey;
-    position: absolute;
+    position: relative;
+    width: 100%;
     bottom: 0px;
 }
 
@@ -60,5 +71,19 @@ button {
     width: 150px;
     height: 40px;
     border-radius: 60px/50px;
-    border: 4px #AAAA2B solid  
+    border: 4px #919128 solid;
+}
+
+.left {
+    position: relative;
+}
+
+.right {
+    position: relative;
+    
+}
+
+.content {
+    position: relative;
+    display: table;
 }
