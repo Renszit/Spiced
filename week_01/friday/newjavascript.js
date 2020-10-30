@@ -14,11 +14,9 @@ var numbers;
 
 numbers = [doublex, x];
 
-//loop through numbers
 
-
-for (i=0; i < numbers.length; i++) {
-    console.log(numbers);
+for (var i=0; i < numbers.length; i++) {
+    console.log(numbers[i]);
 }
 
 //lost me// got distracted.
