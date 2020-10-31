@@ -4,13 +4,16 @@
 
 body {
     margin: 0;
+    background-color: lightgrey;
 }
 
 header {
     background-color: white;
-    height: 70px;
-    padding: 15px;
+    height: 60px;
+    padding: 10px;
     width: 100%;
+    position: fixed;
+    z-index: 99;
 }
 
 #logo {
@@ -26,52 +29,55 @@ header {
 
 #background {
     position: relative;
+    height: 100%;
     width: 100%;
+    filter: brightness(70%);
 }
 
 main {
     width: 100%;
+    height: 100%;
     position: relative;
 }
 
 .text {
     position: absolute;
-    text-align: center;
     width: 100%;
-    z-index: 99;
-    top: 30%;
+    text-align: center;
+    z-index: 1;
+    top: 35%;
 }
 
 h2 {
-    font-family: Georgia, "Times New Roman", Times, serif;
     font-style: italic;
+    font-weight: lighter;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 h3 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 23px;
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
 }
 
 p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;    
-}
-
-footer {
-    background-color: grey;
-    position: relative;
-    width: 100%;
-    bottom: 0px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    margin: 0;
+    margin-top: 3px;
+    margin-left: 60px;
 }
 
 button {
     background-color: yellow;
-    width: 150px;
+    width: 220px;
     height: 40px;
     border-radius: 60px/50px;
-    border: 4px #919128 solid;
+    border: 4px darkgoldenrod solid;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: darkgoldenrod;
 }
 
 .left {
@@ -80,10 +86,52 @@ button {
 
 .right {
     position: relative;
-    
 }
 
-.content {
+footer {
     position: relative;
-    display: table;
+    bottom: 0px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    margin: 0;
+    z-index: 2;
+}
+
+#features {
+    width: 50%;
+    float: left;
+}
+
+#taste {
+    width: 50%;
+    float: left;
+}
+
+#service {
+    width: 50%;
+    float: right;
+}
+
+#limits {
+    width: 50%;
+    float: right;
+}
+
+.smallimg {
+    width: 40px;
+    float: left;
+    margin: 15px;
+}
+
+@media screen and (max-width: 720px) {
+    h2 {
+        display: none;
+    }
+
+    button {
+        width: 440px;
+        height: 80px;
+        transform: translateY(15px);
+    }
 }
