@@ -1,24 +1,14 @@
 function invertCase(string) {
-    
+    var out = "";
+    for (var i in string) {
+        if (string[i].toUpperCase() === string[i]) {
+            out += string[i].toLowerCase();
+        } else {
+            out += string[i].toUpperCase();
+        }
+    }
+    return out;
 }
 
+console.log(invertCase("JaskaaALod010sss"));
 
-
-
-
-// function invertCase(str) {
-//     if (str == Number) {
-//         return str;
-//     } else {
-//         var newStr = "";
-//         for (var i = str.length - 1; i >= 0; i--) {
-//             newStr += str[i];
-//         }
-//         return newStr.toUpperCase();
-//     }
-// }
-
-// invertCase(jeEL);
-
-//excercise code
-// str == str.toUpperCase();
