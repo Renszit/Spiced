@@ -1,6 +1,14 @@
-Object.prototype.getArea = function() {
+// Object.prototype.getArea = function() {
+//     return (this.width * this.height);
+// }; NOTE From David: NEVER DO THIS!
+
+function getArea() {
     return (this.width * this.height);
-};
+}
+
+Square.prototype.getArea = getArea;
+
+Rectangle.prototype.getArea = getArea;
 
 function Square(n) {
     this.width = n,
