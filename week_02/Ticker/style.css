@@ -4,25 +4,25 @@
 }
 
 body {
-    background-color: hotpink;
+    background-color: white;
 }
 
 #box {
     position: relative;
     width: 100%;
-    background-color: grey;
-    border-bottom: 2px black dotted;
+    background-color: white;
+    border-bottom: 1px black solid;
     height: 1.5em;
     overflow-x: hidden;
 }
 
 #ticker {
     position: absolute;
-    color: white;
     left: 100%;
     white-space: nowrap;
 }
 
 #ticker a {
     padding-right: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
