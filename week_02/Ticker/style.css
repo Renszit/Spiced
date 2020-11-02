@@ -8,19 +8,21 @@ body {
 }
 
 #box {
-    position: absolute;
+    position: relative;
     width: 100%;
     background-color: grey;
+    border-bottom: 2px black dotted;
+    height: 1.5em;
+    overflow-x: hidden;
 }
 
 #ticker {
-    position: relative;
+    position: absolute;
     color: white;
-    left:50%; 
-    /* will change this later to be off screen */
+    left: 100%;
+    white-space: nowrap;
 }
 
-a {
-    padding: 30px;
-    font-style: italic;
+#ticker a {
+    padding-right: 30px;
 }
