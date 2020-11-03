@@ -37,7 +37,8 @@ document.addEventListener("keydown", function (evt) {
 });
 // useful for excercises today
 boostBtn.addEventlistener("click", function (event) {
-    event.stopPropagation(); // stops bubbling-up
+    event.stopPropagation();
+    // stops bubbling-up
     leftRacingCar += 100;
     racers[0].style.left = leftRacingCar + "px";
 });
@@ -62,4 +63,4 @@ board.addEventListener("click", function () {
 });
 
 //console.log(board);
-//console.log(racers)
+// console.log(racers);
