@@ -1,4 +1,4 @@
-console.log("sanity check");
+// console.log("sanity check");
 
 window.addEventListener("mousemove", function (event) {
     var elem = document.getElementById("element");

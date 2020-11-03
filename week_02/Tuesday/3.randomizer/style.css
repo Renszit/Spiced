@@ -3,3 +3,9 @@
     margin: 0;
 }
 
+#box {
+    border: solid black 2px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
