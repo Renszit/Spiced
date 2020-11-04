@@ -1,18 +1,18 @@
 * {
     box-sizing: border-box;
-    margin:0;
+    margin: 0;
 }
 
 body {
-    background-color: lightgrey
+    background-color: lightgrey;
 }
 
 /* Overlay */
 
 .overlay {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     visibility: hidden;
     width: 100%;
     height: 100%;
@@ -23,23 +23,30 @@ body {
 
 #x {
     font-size: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     float: right;
     margin-top: -20%;
 }
 
 #sidenav {
-    position: absolute ;
+    position: absolute;
     right: 0%;
     left: 100%;
     background-color: white;
     visibility: visible;
     width: 20%;
+    padding-top: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
     height: 100%;
-    padding: 35px;
-    font-size: 25px;
     transition: 2s;
-    
+}
+
+.links {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    text-decoration: none;
 }
 
 .on {
@@ -51,7 +58,6 @@ body {
 .overlayOff {
     visibility: visible;
 }
-
 
 /* Header */
 
@@ -133,7 +139,7 @@ button:hover {
 
 button:active {
     background-color: rosybrown;
-    color:white;
+    color: white;
     border: 4px yellow solid;
 }
 
@@ -141,16 +147,12 @@ button:active {
 
 footer {
     position: absolute;
-    bottom: 0px;
-    height: 30%;
-    padding: 10px;  
-    background-color: lightgrey
-}
-
-.content {
-    position: relative;
-    height: 100px;
     width: 100%;
+    height: 30%px;
+    bottom: 0px;
+    background-color: lightgrey;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .smallimg {
@@ -159,27 +161,29 @@ footer {
     margin-top: 10px;
 }
 
-.content h3 {
+h3 {
     font-family: "Times New Roman", Times, serif;
     font-size: 25px;
     padding-left: 50px;
     margin-top: 10px;
 }
 
-.content p {
+footer p {
     font-family: "Times New Roman", Times, serif;
     font-size: 18px;
     padding-left: 50px;
 }
 
-#features, #taste{
-    width: 50%;
+#features {
+    position: relative;
     float: left;
+    width: 40%;
 }
 
-#service, #limits {
-    width: 50%;
+#limits {
+    position: relative;
     float: right;
+    width: 40%;
 }
 
 /* Media screens */
@@ -189,14 +193,14 @@ footer {
         position: fixed;
     }
 
-    #features,
     #limits,
-    #service,
-    #taste {
+    #features {
         float: left;
         width: 100%;
     }
 
+    #sidenav {
+        width: 40%;
+    }
+
 }
-
-
