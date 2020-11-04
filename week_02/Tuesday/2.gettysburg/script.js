@@ -6,3 +6,5 @@ var textArea = document.querySelector("textarea");
 textArea.addEventListener("input", function (evt) {
     evt.target.value = gettyB.slice(0, evt.target.value.length);
 });
+
+

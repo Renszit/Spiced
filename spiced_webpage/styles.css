@@ -1,11 +1,57 @@
 * {
     box-sizing: border-box;
+    margin:0;
 }
 
 body {
-    margin: 0;
     background-color: lightgrey
 }
+
+/* Overlay */
+
+.overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: 2s;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+#x {
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    float: right;
+    margin-top: -20%;
+}
+
+#sidenav {
+    position: absolute ;
+    right: 0%;
+    left: 100%;
+    background-color: white;
+    visibility: visible;
+    width: 20%;
+    height: 100%;
+    padding: 35px;
+    font-size: 25px;
+    transition: 2s;
+    
+}
+
+.on {
+    transition-property: transform;
+    transition-duration: 2s;
+    transform: translateX(-100%);
+}
+
+.overlayOff {
+    visibility: visible;
+}
+
 
 /* Header */
 
@@ -102,10 +148,9 @@ footer {
 }
 
 .content {
-    padding-left: 5%;
-    padding-right: 5%;
-    margin:10px;
-    
+    position: relative;
+    height: 100px;
+    width: 100%;
 }
 
 .smallimg {
@@ -117,7 +162,6 @@ footer {
 .content h3 {
     font-family: "Times New Roman", Times, serif;
     font-size: 25px;
-    margin: 0;
     padding-left: 50px;
     margin-top: 10px;
 }
@@ -125,26 +169,15 @@ footer {
 .content p {
     font-family: "Times New Roman", Times, serif;
     font-size: 18px;
-    margin: 0;
     padding-left: 50px;
 }
 
-#features {
+#features, #taste{
     width: 50%;
     float: left;
 }
 
-#taste {
-    width: 50%;
-    float: left;
-}
-
-#service {
-    width: 50%;
-    float: right;
-}
-
-#limits {
+#service, #limits {
     width: 50%;
     float: right;
 }

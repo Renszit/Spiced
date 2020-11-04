@@ -1,0 +1,15 @@
+* {
+    background:peachpuff;
+}
+
+#canvas {
+    background:white;
+    border: 2px solid black;
+    position: relative;
+}
+
+#largercanvas {
+    background:white;
+    border: 2px solid black;
+    position: absolute;
+}
