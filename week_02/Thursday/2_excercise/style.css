@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display:flex;
+    flex-flow:column;
+    justify-content: space-between;
+}
+
+header {
+    background-color: yellow;
+    height: 70px;
+}
+
+main {
+    background-color: grey;
+    flex-grow: 1;
+    
+}
+
+footer {
+    background-color: blue;
+    height: 30px;
+
+
+}
