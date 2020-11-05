@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.outerbox { 
+    display:flex;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
+
+.smallbox {
+    width: 50%;
+    height: 50%;
+}
+#grey {
+    background-color: grey;
+    justify-content: flex-end;
+}
+
+#black {
+    background-color:black;
+    justify-content: flex-end;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#purple {
+    background-color:purple;
+}
+
+#orange {
+    background-color: orange;
+}
+
+#yellow {
+    background-color: yellow;
+    align-self: flex-end;
+}
+
+#green {
+    background-color:green;
+    align-self: flex-end;
+}
+
+#pink {
+    background-color:pink;
+}
+
