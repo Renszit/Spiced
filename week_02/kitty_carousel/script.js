@@ -7,14 +7,14 @@
         kitties[1].classList.add("onscreen");
     }
 
-    setTimeout(moveKitties, 3);
+    setTimeout(moveKitties, 3000);
 
     document.addEventListener("transitionend", function (e) {
         if (e.target.classList.value == "offscreen-left") {
             kitties[0].classList.remove("offscreen-left");
             kitties[kitties.length] = kitties[0];
             kitties.shift();
-            setTimeout(moveKitties, 3);
+            setTimeout(moveKitties, 3000);
         }
     });
 })();
