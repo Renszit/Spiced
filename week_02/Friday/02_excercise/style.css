@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 70px 1fr 30px;
+}
+
+header {
+    background-color: lightpink;
+}
+
+footer {
+    background-color: lightgreen;
+}
+
+main {
+    background-color: grey;
+}
+
