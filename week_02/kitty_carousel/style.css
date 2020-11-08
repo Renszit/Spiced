@@ -27,3 +27,23 @@ body {
     transform: translateX(-100%);
     transition: transform 3s;
 }
+
+.dots-container {
+    position: absolute;
+    bottom: 150px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 5px solid tomato;
+    margin: 0 10px;
+}
+
+.on {
+    background: tomato;
+}
