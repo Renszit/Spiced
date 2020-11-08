@@ -40,10 +40,10 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: 5px solid tomato;
+    border: 5px solid floralwhite;
     margin: 0 10px;
 }
 
 .on {
-    background: tomato;
+    background: floralwhite;
 }
