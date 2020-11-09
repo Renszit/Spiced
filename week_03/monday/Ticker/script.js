@@ -1,37 +1,32 @@
 (function () {
     // var req = requestAnimationFrame(moveBox);
-    var tckr = document.getElementById("ticker");
-    //change
-    var lft = tckr.offsetLeft;
-    //change
-    var lnks = document.getElementsByTagName("a");
-    //change
+    var tckr = $("#ticker");
+    var lnks = $("a");
+    var lft = tckr.offset().left;
     var anim;
 
-    tckr.addEventListener("mouseenter", function () {
+    tckr.on("mouseenter", function (e) {
+        console.log("mouseenter:", e);
         cancelAnimationFrame(anim);
     });
-    //change
 
-    tckr.addEventListener("mouseleave", function () {
+    tckr.on("mouseleave", function (e) {
+        console.log("mouseleave:", e);
         requestAnimationFrame(moveBox);
     });
-    //change
 
     function moveBox() {
-        if (lft <= -1 * lnks[0].offsetWidth) {
-            lft += lnks[0].offsetWidth;
-            tckr.appendChild(lnks[0]);
-            //change
+        if (lft <= -1 * lnks.eq(0).offsetWidth) {
+            lft += lnks.eq(0).offsetWidth;
+            tckr.append(lnks.eq(0));
         }
         lft--;
-        tckr.style.left = lft + "px";
-        lnks[0].offsetWidth;
+        tckr.css({
+            left: lft + "px",
+        });
+        lnks.eq(0).offsetWidth;
         anim = requestAnimationFrame(moveBox);
-        //change
     }
 
     moveBox();
 })();
-
-
