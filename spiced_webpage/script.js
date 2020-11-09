@@ -1,5 +1,6 @@
 (function () {
-
+    var cookieBox = $(".cookiebox");
+    var cookieX = $("#cookieX");
     var overlay = document.getElementById("overlay");
     var sidenav = document.getElementById("sidenav");
     var x = document.getElementById("x");
@@ -33,6 +34,11 @@
         evt.stopPropagation();
     });
 
+    cookieX.on("click", function() {
+        cookieBox.css({
+            visibility: "hidden",
+        });
+    });
 
 })();
 
