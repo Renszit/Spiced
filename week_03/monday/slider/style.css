@@ -1,0 +1,33 @@
+img {
+    height: 400px;
+    width: 600px;
+    /* this makes our imgs look normal */
+    object-fit: cover;
+}
+
+#container {
+    position: relative;
+    height: 400px;
+    width: 600px;
+    border: 5px solid black;
+}
+
+#bottom-image {
+    position: absolute;
+}
+
+#top-image {
+    position: absolute;
+    /* this is the magic step!!! */
+    overflow: hidden;
+    width: 300px; 
+}
+
+#slider {
+    position: absolute;
+    height: 400px;
+    width: 10px;
+    background-color: steelblue;
+    /* makes our slide start off in the center */
+    left: 300px;
+}
