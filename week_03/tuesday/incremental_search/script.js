@@ -74,33 +74,23 @@
         // console.log("pressing a keydown");
         var renderedCountries = $("p");
         var highlight = $(".highlight");
-        
+
         //downkey //.prev()// below should get fixed
         if (e.keyCode === 40) {
-            if (renderedCountries.eq(0).hasClass("highlight")) {
-                renderedCountries.eq(0).removeClass("highlight");
-                renderedCountries.eq(1).addClass("highlight");
-            } else if (renderedCountries.eq(1).hasClass("highlight")) {
-                renderedCountries.eq(1).removeClass("highlight");
-                renderedCountries.eq(2).addClass("highlight");
-            } else if (renderedCountries.eq(2).hasClass("highlight")) {
-                renderedCountries.eq(2).removeClass("highlight");
-                renderedCountries.eq(3).addClass("highlight");
-            } else {
+            if (renderedCountries.hasClass("highlight") == false) {
                 renderedCountries.eq(0).addClass("highlight");
+            } else if (highlight.length == 1) {
+                highlight.removeClass("highlight");
+                highlight.next().addClass("highlight");
             }
         }
         //upkey
         if (e.keyCode === 38) {
-            if (renderedCountries.eq(3).hasClass("highlight")) {
-                renderedCountries.eq(3).removeClass("highlight");
-                renderedCountries.eq(2).addClass("highlight");
-            } else if (renderedCountries.eq(2).hasClass("highlight")) {
-                renderedCountries.eq(2).removeClass("highlight");
-                renderedCountries.eq(1).addClass("highlight");
-            } else if (renderedCountries.eq(1).hasClass("highlight")) {
-                renderedCountries.eq(1).removeClass("highlight");
-                renderedCountries.eq(0).addClass("highlight");
+            if (renderedCountries.hasClass("highlight") == false) {
+                renderedCountries.eq(3).addClass("highlight");
+            } else if (highlight.length == 1) {
+                highlight.removeClass("highlight");
+                highlight.prev().addClass("highlight");
             }
         }
         //enter
