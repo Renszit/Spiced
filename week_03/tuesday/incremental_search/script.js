@@ -26,15 +26,14 @@
                     break;
                 }
             }
-            // STILL FIX THIS, stays as first result
-            if (inputVal.length > 0 && matchResults.length === 0) {
-                matchResults = ["nope"];
-            }
-
             if (inputVal == "") {
                 matchResults = [];
             }
         }
+        if (inputVal.length > 0 && matchResults.length === 0) {
+            matchResults = ["nope"];
+        }
+
         for (var j = 0; j < matchResults.length; j++) {
             htmlForCountries +=
                 '<p class="country">' + matchResults[j] + "</p>";
@@ -75,8 +74,8 @@
         // console.log("pressing a keydown");
         var renderedCountries = $("p");
         var highlight = $(".highlight");
-        //!!FIX - >movekitties logic below
-        //downkey //.prev()
+        
+        //downkey //.prev()// below should get fixed
         if (e.keyCode === 40) {
             if (renderedCountries.eq(0).hasClass("highlight")) {
                 renderedCountries.eq(0).removeClass("highlight");

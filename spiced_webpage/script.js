@@ -5,7 +5,7 @@
     var sidenav = document.getElementById("sidenav");
     var x = document.getElementById("x");
     var hamburger = document.getElementById("hamburgermenu");
-
+    
     hamburger.addEventListener("click", function () {
         sidenav.classList.add("on");
     });
@@ -14,7 +14,7 @@
         overlay.classList.add("overlayOff");
     });
 
-    x.addEventListener('click', function() {
+    x.addEventListener("click", function () {
         sidenav.classList.remove("on");
     });
 
@@ -22,26 +22,23 @@
         overlay.classList.remove("overlayOff");
     });
 
-    overlay.addEventListener("click", function() {
+    overlay.addEventListener("click", function () {
         overlay.classList.remove("overlayOff");
     });
 
-    overlay.addEventListener("click", function() {
+    overlay.addEventListener("click", function () {
         sidenav.classList.remove("on");
     });
 
-    sidenav.addEventListener("click", function(evt){
+    sidenav.addEventListener("click", function (evt) {
         evt.stopPropagation();
     });
 
-    cookieX.on("click", function() {
+    cookieX.on("click", function () {
         cookieBox.css({
             visibility: "hidden",
         });
     });
-
 })();
-
-
 
 //addEventListener for darkmode styles?

@@ -222,6 +222,7 @@ footer p {
 
 .cookiebox {
     position: fixed;
+    visibility: visible;
     top:0;
     left:0;
     display: flex;
