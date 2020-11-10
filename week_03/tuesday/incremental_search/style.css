@@ -1,0 +1,13 @@
+.results-container {
+    padding: 10px;
+    border-radius: 5%;
+}
+
+body {
+    background-color: salmon;
+}
+
+.highlight {
+    background-color: black;
+    color: white;
+}
