@@ -1,0 +1,29 @@
+#board {
+    display: flex;  
+}
+
+.slot {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: salmon;
+    justify-content: center;
+}
+
+.hole {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    align-self: center;
+
+}
+
+.player1 .hole {
+    background-color: blue;
+}
+
+.player2 .hole {
+    background-color: red;
+}
