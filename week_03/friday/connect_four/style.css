@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 #board {
     display: flex;  
 }
@@ -26,4 +30,24 @@
 
 .player2 .hole {
     background-color: red;
+}
+
+#redWins {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    visibility: hidden;
+    top:0;
+    left:0;
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+#blueWins {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    visibility: hidden;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,255,0.4);
 }
