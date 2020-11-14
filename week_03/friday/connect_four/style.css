@@ -2,8 +2,15 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 #board {
-    display: flex;  
+    margin-top: 40px;
+    display: flex;
 }
 
 .slot {
@@ -21,7 +28,6 @@
     background-color: white;
     position: relative;
     align-self: center;
-
 }
 
 .player1 .hole {
@@ -32,22 +38,27 @@
     background-color: red;
 }
 
-#redWins {
+.redWins {
     height: 100%;
     width: 100%;
     position: absolute;
     visibility: hidden;
-    top:0;
-    left:0;
-    background-color: rgba(255, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 0, 0, 0.40);
 }
 
-#blueWins {
+.blueWins {
     height: 100%;
     width: 100%;
     position: absolute;
     visibility: hidden;
-    top:0;
-    left:0;
-    background-color: rgba(0,0,255,0.4);
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 255, 0.40);
+}
+
+h3, h2, h1 {
+    font-family: "Courier New", Courier, monospace;
+    
 }

@@ -4,8 +4,7 @@
     $(".column").on("click", function (e) {
         var slotsInColumn = $(e.currentTarget).children();
         var foundEmptySlot = false;
-        var slotsInRow = $(".row" + i);
-
+        var slot = $(".slot");
         //backwards loop, checking if class for player 1 or 2
         for (var i = 5; i >= 0; i--) {
             if (
@@ -27,43 +26,37 @@
             gameSetMatch(currentPlayer);
             $(".column").off("click");
             return;
-        } else if (checkForVictory(slotsInRow)) {
-            // console.log("won in row");
-            gameSetMatch(currentPlayer);
-            $(".column").off("click");
-            return;
-        }
-
-        //diagonal win
-        var slot = $(".slot");
-        var col = $(e.currentTarget);
-
-        for (var k = 0; k < slot.length; k++) {
-            if (slot.eq(k).hasClass("player1")) {
-               // and 1 down and 1 column up has same,
-               // and again one down and 1 colum has same
-               // and again.
-                }
+        } else {
+            var slotsInRow = $(".row" + i);
+            if (checkForVictory(slotsInRow)) {
+                gameSetMatch(currentPlayer);
+                $(".column").off("click");
+                //player won in row, do victory dance.
+                return;
             }
         }
-
-        // gameSetMatch("player1");
-        // $(".column").off("click");
-        // return;
-        //     }
-        //     // if (slot.eq(k).hasClass("player1")) {
-        //     if (slot.eq(k).hasClass("player2")) {
-        //         // console.log("player 2");
-        //     }
-        // }
-
-        //  else
-        // //diagonal win
-        // if (checkForVictory(diagonalFour)){
-        //     gameSetMatch(currentPlayer);
-        //     $(".column").off("click");
-        //     return;
-        // }
+        //diagonal check.
+        for (var j = 0; j < slot.length; j++) {
+            if (
+                slot.eq(j).hasClass(currentPlayer) &&
+                slot.eq(j + 7).hasClass(currentPlayer) &&
+                slot.eq(j + 14).hasClass(currentPlayer) &&
+                slot.eq(j + 21).hasClass(currentPlayer)
+            ) {
+                gameSetMatch(currentPlayer);
+                $(".column").off("click");
+                return;
+            } else if (
+                slot.eq(j).hasClass(currentPlayer) &&
+                slot.eq(j + 5).hasClass(currentPlayer) &&
+                slot.eq(j + 10).hasClass(currentPlayer) &&
+                slot.eq(j + 15).hasClass(currentPlayer)
+            ) {
+                gameSetMatch(currentPlayer);
+                $(".column").off("click");
+                return;
+            }
+        }
 
         switchPlayers();
     });
@@ -94,21 +87,16 @@
         }
     }
 
+    // victory dance function
     function gameSetMatch(player) {
         if (player == "player1") {
-            $("#blueWins").css({
+            $(".blueWins").css({
                 visibility: "visible",
             });
-            // insert random blue
         } else {
-            $("#redWins").css({
+            $(".redWins").css({
                 visibility: "visible",
             });
-            //random red gif
         }
     }
 })();
-
-//GIPHY API for RED & BLUE // victory function
-// using ajax to import a random gif every time
-//
