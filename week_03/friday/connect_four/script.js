@@ -1,6 +1,7 @@
 (function () {
     var currentPlayer = "player1";
 
+    //placer
     $(".column").on("click", function (e) {
         var slotsInColumn = $(e.currentTarget).children();
         var foundEmptySlot = false;
@@ -87,16 +88,55 @@
         }
     }
 
+    // //!!// mouseover animation still needs work///
+
+    // var hole = $(".hole");
+    // $(".column").on("mouseover", function (e) {
+    //     for (var p = 5; p >= 0; p--) {
+    //         if (currentPlayer == "player1") {
+    //             hole.eq(p).addClass("holeSelectBlue");
+    //         } else {
+    //             hole.eq(p).addClass("holeSelectRed");
+    //         }
+    //     }
+    // });
+
+    //restart button.
+    var restart = $("#restart");
+
+    restart.on("click", function () {
+        location.reload();
+    });
+
     // victory dance function
     function gameSetMatch(player) {
+        var slot = $(".slot");
         if (player == "player1") {
             $(".blueWins").css({
                 visibility: "visible",
             });
+            $("#blueMes").css({
+                visibility: "visible",
+            });
+            //removes losing color off the board
+            for (var i = 0; i < slot.length; i++) {
+                if (slot.eq(i).hasClass("player2")) {
+                    slot.eq(i).removeClass("player2");
+                }
+            }
         } else {
             $(".redWins").css({
                 visibility: "visible",
             });
+            $('#redMes').css({
+                visibility: "visible",
+            });
+            
+            for (var j = 0; j < slot.length; j++) {
+                if (slot.eq(j).hasClass("player1")) {
+                    slot.eq(j).removeClass("player1");
+                }
+            }
         }
     }
 })();
