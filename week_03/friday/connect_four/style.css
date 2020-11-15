@@ -2,20 +2,9 @@
     margin: 0;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    background-color: rgba(148,187,233,1);
-  }
-  50% {
-    background-color: rgba(238,174,202,1);
-  }
-}
-
 body {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: pulse 10s infinite ;
+    transition: all 1s;
+    background-color: rgba(148, 187, 233, 1);
 }
 
 #board {
@@ -27,11 +16,11 @@ body {
     display: flex;
     width: 100px;
     height: 100px;
-    background-color: rgba(225, 125, 250, 0.0);
+    background-color: rgba(225, 125, 250, 0);
     justify-content: center;
 }
 
- /* holes  */
+/* holes  */
 .hole {
     width: 80px;
     height: 80px;
@@ -58,28 +47,6 @@ body {
     border: rgb(245, 120, 174) 2px dotted;
 }
 
-/* winning style */
-.redWins {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    visibility: hidden;
-    top: 0;
-    left: 0;
-    background-color: rgb(238,174,202);
-}
-
-.blueWins {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    visibility: hidden;
-    top: 0;
-    left: 0;
-    background-color:  rgba(148,187,233);
-}
-
-
 /* winning message */
 h1 {
     font: small-caps bold 24px/1 sans-serif;
@@ -98,7 +65,6 @@ h1 {
 
 #restart:hover {
     background-color: transparent;
-
 }
 
 header {
@@ -109,11 +75,107 @@ header {
 #redMes {
     visibility: hidden;
     z-index: 100;
-    color: rgb(238,174,202);
+    color: rgb(238, 174, 202);
 }
 
 #blueMes {
     visibility: hidden;
     z-index: 100;
-    color: rgba(148,187,233);
+    color: rgba(148, 187, 233);
+}
+
+/* scoreboard */
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+#scoreboard {
+    display: flex;
+    font: small-caps bold 15px/1 sans-serif;
+    margin: 20px;
+}
+
+#redscore {
+    border: rgb(245, 120, 174) 2px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bluescore {
+    border: rgb(94, 156, 228) 2px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resetScore {
+    margin-left: 10px;
+    padding-top: 30px;
+}
+
+/* //animals  animation */
+#bat {
+    position: fixed;
+    bottom: 100%;
+    transition: all 8s;
+    z-index: 3000;
+}
+
+#cat {
+    position: fixed;
+    right: 100%;
+    transition: all 10s;
+    z-index: 3000;
+}
+
+#unicorn {
+    position: fixed;
+    top: 100%;
+    transition: all 10s;
+    z-index: 3000;
+}
+
+#dance {
+    position: fixed;
+    top: 100%;
+    right: 60%;
+    transition: all 10s;
+}
+
+#confetti {
+    position: fixed;
+    top:0;
+    left:0;
+    width:25%;
+    z-index: 3001;
+    visibility: hidden;
+    transition: ease-in 5s;
+}
+
+#confetti2 {
+    position: fixed;
+    top:0;
+    right:0;
+    width:25%;
+    z-index: 3001;
+    visibility: hidden;
+    transition: ease-in 5s;
+}
+
+#doggo{
+    position: fixed;
+    top: 100%;
+    right: 15%;
+    transition: all 10s;
 }

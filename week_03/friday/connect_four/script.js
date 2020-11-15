@@ -2,6 +2,12 @@
     var currentPlayer = "player1";
     var currentSelect = "player1Select";
 
+    var scoreBlue = parseInt(localStorage.getItem("scoreBlue")) + 1 || 0;
+    var scoreRed = parseInt(localStorage.getItem("scoreRed")) + 1 || 0;
+
+    $("#bluescore").text(scoreBlue);
+    $("#redscore").text(scoreRed);
+
     //empty slot check/
     $(".column").on("click", function (e) {
         var slotsInColumn = $(e.currentTarget).children();
@@ -14,7 +20,7 @@
                 !slotsInColumn.eq(i).hasClass("player2")
             ) {
                 slotsInColumn.eq(i).addClass(currentPlayer) &&
-                slotsInColumn.eq(i).removeClass(currentSelect);
+                    slotsInColumn.eq(i).removeClass(currentSelect);
                 foundEmptySlot = true;
                 break;
             }
@@ -29,6 +35,7 @@
             gameSetMatch(currentPlayer);
             $(".column").off("click");
             $(".column").off("mouseover");
+            requestAnimationFrame(winningParty());
             return;
         } else {
             var slotsInRow = $(".row" + i);
@@ -36,6 +43,7 @@
                 gameSetMatch(currentPlayer);
                 $(".column").off("click");
                 $(".column").off("mouseover");
+                requestAnimationFrame(winningParty());
                 //player won in row, do victory dance.
                 return;
             }
@@ -51,6 +59,7 @@
                 gameSetMatch(currentPlayer);
                 $(".column").off("click");
                 $(".column").off("mouseover");
+                requestAnimationFrame(winningParty());
                 return;
             } else if (
                 slot.eq(j).hasClass(currentPlayer) &&
@@ -61,6 +70,7 @@
                 gameSetMatch(currentPlayer);
                 $(".column").off("click");
                 $(".column").off("mouseover");
+                requestAnimationFrame(winningParty());
                 return;
             }
         }
@@ -73,11 +83,16 @@
     function switchPlayers() {
         if (currentPlayer == "player1") {
             currentPlayer = "player2";
-            currentSelect = "player2Select"
-            ;
+            currentSelect = "player2Select";
+            $("body").css({
+                backgroundColor: "rgba(238, 174, 202, 1)",
+            });
         } else {
             currentPlayer = "player1";
             currentSelect = "player1Select";
+            $("body").css({
+                backgroundColor: "rgba(148, 187, 233, 1)",
+            });
         }
     }
 
@@ -135,8 +150,6 @@
         }
     });
 
-    // scoreboard localhost
-
     //restart button.
     var restart = $("#restart");
 
@@ -144,13 +157,16 @@
         location.reload();
     });
 
+    //score reset button
+    $("#resetScore").on("click", function () {
+        localStorage.clear();
+        location.reload();
+    });
+
     // victory dance function
     function gameSetMatch(player) {
         var slot = $(".slot");
         if (player == "player1") {
-            $(".blueWins").css({
-                visibility: "visible",
-            });
             $("#blueMes").css({
                 visibility: "visible",
             });
@@ -160,19 +176,48 @@
                     slot.eq(i).removeClass("player2");
                 }
             }
+            // adds one to scoreboard
+            localStorage.setItem("scoreBlue", scoreBlue.toString());
         } else {
-            $(".redWins").css({
-                visibility: "visible",
-            });
             $("#redMes").css({
                 visibility: "visible",
             });
-
             for (var j = 0; j < slot.length; j++) {
                 if (slot.eq(j).hasClass("player1")) {
                     slot.eq(j).removeClass("player1");
                 }
             }
+            //adds one to scoreboard
+            localStorage.setItem("scoreRed", scoreRed.toString());
         }
+    }
+
+    // animation
+
+    function winningParty() {
+        $("#bat").css({
+            bottom: "0%",
+            transform: "rotate(360deg)",
+        });
+        $("#cat").css({
+            right: "0%",
+            bottom: "50%",
+            transform: "rotate(360deg)",
+        });
+        $("#doggo").css({
+            top: "40%",
+        });
+        $("#unicorn").css({
+            top: "0%",
+        });
+        $("#dance").css({
+            top: "40%",
+        });
+        $("#confetti").css({
+            visibility: "visible",
+        });
+        $("#confetti2").css({
+            visibility: "visible",
+        });
     }
 })();
