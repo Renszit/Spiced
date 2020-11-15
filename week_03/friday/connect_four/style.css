@@ -50,6 +50,14 @@ body {
     border: rgb(245, 120, 174) 5px solid;
 }
 
+.player1Select .hole {
+    border: rgb(94, 156, 228) 2px dotted;
+}
+
+.player2Select .hole {
+    border: rgb(245, 120, 174) 2px dotted;
+}
+
 /* winning style */
 .redWins {
     height: 100%;

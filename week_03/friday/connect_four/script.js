@@ -1,7 +1,8 @@
 (function () {
     var currentPlayer = "player1";
+    var currentSelect = "player1Select";
 
-    //placer
+    //empty slot check/
     $(".column").on("click", function (e) {
         var slotsInColumn = $(e.currentTarget).children();
         var foundEmptySlot = false;
@@ -12,7 +13,8 @@
                 !slotsInColumn.eq(i).hasClass("player1") &&
                 !slotsInColumn.eq(i).hasClass("player2")
             ) {
-                slotsInColumn.eq(i).addClass(currentPlayer);
+                slotsInColumn.eq(i).addClass(currentPlayer) &&
+                slotsInColumn.eq(i).removeClass(currentSelect);
                 foundEmptySlot = true;
                 break;
             }
@@ -26,12 +28,14 @@
             // console.log("won in column");
             gameSetMatch(currentPlayer);
             $(".column").off("click");
+            $(".column").off("mouseover");
             return;
         } else {
             var slotsInRow = $(".row" + i);
             if (checkForVictory(slotsInRow)) {
                 gameSetMatch(currentPlayer);
                 $(".column").off("click");
+                $(".column").off("mouseover");
                 //player won in row, do victory dance.
                 return;
             }
@@ -46,6 +50,7 @@
             ) {
                 gameSetMatch(currentPlayer);
                 $(".column").off("click");
+                $(".column").off("mouseover");
                 return;
             } else if (
                 slot.eq(j).hasClass(currentPlayer) &&
@@ -55,6 +60,7 @@
             ) {
                 gameSetMatch(currentPlayer);
                 $(".column").off("click");
+                $(".column").off("mouseover");
                 return;
             }
         }
@@ -67,8 +73,11 @@
     function switchPlayers() {
         if (currentPlayer == "player1") {
             currentPlayer = "player2";
+            currentSelect = "player2Select"
+            ;
         } else {
             currentPlayer = "player1";
+            currentSelect = "player1Select";
         }
     }
 
@@ -88,18 +97,45 @@
         }
     }
 
-    // //!!// mouseover animation still needs work///
+    //mouseover;
+    $(".column").on("mouseover", function (e) {
+        var slotsInColumn = $(e.currentTarget).children();
+        var foundEmptySlot = false;
+        for (var i = 5; i >= 0; i--) {
+            if (
+                !slotsInColumn.eq(i).hasClass("player1") &&
+                !slotsInColumn.eq(i).hasClass("player2")
+            ) {
+                slotsInColumn.eq(i).addClass(currentSelect);
+                foundEmptySlot = true;
+                break;
+            }
+        }
+        if (!foundEmptySlot) {
+            return;
+        }
+    });
 
-    // var hole = $(".hole");
-    // $(".column").on("mouseover", function (e) {
-    //     for (var p = 5; p >= 0; p--) {
-    //         if (currentPlayer == "player1") {
-    //             hole.eq(p).addClass("holeSelectBlue");
-    //         } else {
-    //             hole.eq(p).addClass("holeSelectRed");
-    //         }
-    //     }
-    // });
+    //mouseout
+    $(".column").on("mouseout", function (e) {
+        var slotsInColumn = $(e.currentTarget).children();
+        var foundEmptySlot = false;
+        for (var i = 5; i >= 0; i--) {
+            if (
+                !slotsInColumn.eq(i).hasClass("player1") &&
+                !slotsInColumn.eq(i).hasClass("player2")
+            ) {
+                slotsInColumn.eq(i).removeClass(currentSelect);
+                foundEmptySlot = true;
+                break;
+            }
+        }
+        if (!foundEmptySlot) {
+            return;
+        }
+    });
+
+    // scoreboard localhost
 
     //restart button.
     var restart = $("#restart");
@@ -128,10 +164,10 @@
             $(".redWins").css({
                 visibility: "visible",
             });
-            $('#redMes').css({
+            $("#redMes").css({
                 visibility: "visible",
             });
-            
+
             for (var j = 0; j < slot.length; j++) {
                 if (slot.eq(j).hasClass("player1")) {
                     slot.eq(j).removeClass("player1");
