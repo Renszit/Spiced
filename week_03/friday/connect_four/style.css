@@ -10,6 +10,7 @@ body {
 #board {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .slot {
@@ -52,14 +53,17 @@ h1 {
     font: small-caps bold 24px/1 sans-serif;
     color: white;
     background-color: black;
-    padding: 2px;
-    margin-right: 80px;
-    margin-left: 80px;
+}
+
+header {
+    height: 40px;
+    width: 100%;
 }
 
 #restart {
     font: small-caps bold 24px/1 sans-serif;
     z-index: 100;
+    padding: 10px;
     transition: background-color 4s ease;
 }
 
@@ -73,15 +77,25 @@ header {
 }
 
 #redMes {
+    position: fixed;
     visibility: hidden;
     z-index: 100;
     color: rgb(238, 174, 202);
+    width: 300px;
+    text-align: center;
+    margin-top: -10px;
+    transition: all 10s;
 }
 
 #blueMes {
+    position: fixed;
+    width: 300px;
     visibility: hidden;
     z-index: 100;
+    text-align: center;
+    margin-top: -10px;
     color: rgba(148, 187, 233);
+    transition: all 10s;
 }
 
 /* scoreboard */
@@ -116,7 +130,7 @@ footer {
     margin-left: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center
 }
 
 #resetScore {
@@ -124,7 +138,7 @@ footer {
     padding-top: 30px;
 }
 
-/* //animals  animation */
+/* //animalgif animation */
 #bat {
     position: fixed;
     bottom: 100%;
@@ -158,9 +172,9 @@ footer {
     top:0;
     left:0;
     width:25%;
-    height: 100%;
+    height: 100% ;
     visibility: hidden;
-    transition: ease-in 5s;
+    transition: all 10s;
 }
 
 #confetti2 {
@@ -170,7 +184,7 @@ footer {
     width:25%;
     height: 100%;
     visibility: hidden;
-    transition: ease-in 5s;
+    transition: all 10s;
 }
 
 #doggo{

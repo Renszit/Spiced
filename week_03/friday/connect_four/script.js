@@ -219,5 +219,17 @@
         $("#confetti2").css({
             visibility: "visible",
         });
+        $("#blueMes").css({
+            fontSize: "100px",
+            width: "700px",
+            padding: "20px",
+            marginTop: "100px",
+        });
+        $("#redMes").css({
+            fontSize: "100px",
+            width: "700px",
+            padding: "20px",
+            marginTop: "100px",
+        });
     }
 })();
