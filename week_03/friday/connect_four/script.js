@@ -177,7 +177,11 @@
                 }
             }
             // adds one to scoreboard
-            localStorage.setItem("scoreBlue", scoreBlue.toString());
+            try {
+                localStorage.setItem("scoreBlue", scoreBlue.toString());
+            } catch (error) {
+                console.log("blueError", error);
+            }
         } else {
             $("#redMes").css({
                 visibility: "visible",
@@ -188,7 +192,11 @@
                 }
             }
             //adds one to scoreboard
-            localStorage.setItem("scoreRed", scoreRed.toString());
+            try {
+                localStorage.setItem("scoreRed", scoreRed.toString());
+            } catch (error) {
+                console.log("redError", error);
+            }
         }
     }
 
