@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class = writers-info></div>
+<script id="writersId" type="text/x-handlebars-template">
+    {{#authors}}
+        <div class="container">
+            <div class="card">
+                <img src={{photo}}>
+                <h2>{{name}}</h2>
+                <p>born: {{born}}</p>
+                <p>died: {{died}}</p>
+                <ul>
+                    {{#selectedWritings}}
+                    <ul>{{.}}</ul>
+                    <ul>{{.}}</ul>
+                    <ul>{{.}}</ul>
+                    {{/selectedWritings}}
+                </ul>
+                <h3>{{quote}}</h3>
+            </div>
+        </div>
+    {{/authors}}
+</script>  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
