@@ -1,46 +1,33 @@
 (function () {
-    var defaultImg = "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png";
     var moreButton = $("#moreButton");
-    var doc = $(document);
-    var win = $(window);
-    var infScroll = location.search.search(/\bscroll=infinite\b/) > -1;
     var nextUrl;
-    var results;
-    var timer;
 
-    function getData (url) {
-        var q, type, moreWasClicked;
+    var results; 
+    // initial ajax reguest
 
-    }
-
-
-
-
-
-
+    //trigger initial ajax request
     $("#submit-button").on("click", function () {
         var userInput = $("input").val();
         var albumOrArtist = $("select").val();
 
-
-        
         $.ajax({
-            method: "GET",
             url: "https://spicedify.herokuapp.com/spotify",
-            //url of our proxy
             data: {
                 query: userInput,
                 type: albumOrArtist,
             },
             success: (results = function (response) {
-                // console.log("response:", response);
                 response = response.artists || response.albums;
                 var myHtml = "";
                 var redirection = "";
 
+                // looks for ?scroll=infinite in browser.
                 if (location.search.indexOf("scroll=infinite") > -1) {
                     checkScrollPosition();
+                } else {
+                    moreButton.css({ visibility: "visible" });
                 }
+
                 //html result
                 if (response.items.length > 0) {
                     $("#resultsFor").html(
@@ -76,42 +63,36 @@
                         "</a>";
 
                     $("#results-container").html(myHtml);
-
-                    nextUrl =
-                        response.next &&
-                        response.next.replace(
-                            "api.spotify.com/v1/search",
-                            "spicedify.herokuapp.com/spotify"
-                        );
-
-                    if (nextUrl !== null) {
-                        moreButton.css({ visibility: "visible" });
-                    }
                 }
+                nextUrl =
+                    response.next &&
+                    response.next.replace(
+                        "api.spotify.com/v1/search",
+                        "spicedify.herokuapp.com/spotify"
+                    );
             }),
         });
     });
 
-    //check scroll position
+    // check scroll position
     function checkScrollPosition() {
         setTimeout(function () {
             if (
-                $(window).height() + $(document).scrollTop() ===
-                $(document).height()
+                $(window).height() + $(document).scrollTop() >=
+                $(document).height() - 300
             ) {
-                moreButton.css({ visibility: "hidden" });
                 $.ajax({
-                    method: "GET",
                     url: nextUrl,
                     success: results,
                 });
-                console.log("at bottom of page!");
+                // console.log("at bottom of page!");
+                // moreButton.css({ visibility: "hidden" }),
             } else {
                 checkScrollPosition();
             }
         }, 500);
     }
-
+    //more button
     moreButton.on("click", function () {
         $.ajax({
             method: "GET",
