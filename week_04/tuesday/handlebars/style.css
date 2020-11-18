@@ -1,7 +1,24 @@
-body {
-    margin: 0%;
-    display: grid;
-    grid-template-rows: 100vh;
-    grid-template-columns: 300px;
+* {
+    margin: 0;
 }
 
+
+.container {
+    display: flex;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 300px 300px 300px
+}
+
+.card {
+    background-color: mistyrose;
+    color:brown;
+    width: 300px;
+
+}
+
+.card img {
+    width: 300px;
+}
