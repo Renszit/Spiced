@@ -47,7 +47,7 @@
                     }
                     redirection = response.items[i].external_urls.spotify;
                     myHtml +=
-                        "<a href=" +
+                        "<div>" +"<a href=" +
                         redirection +
                         ">" +
                         "<img src=" +
@@ -60,7 +60,7 @@
                         "<div>" +
                         response.items[i].name +
                         "</div>" +
-                        "</a>";
+                        "</a>" + "</div>";
 
                     $("#results-container").html(myHtml);
                 }

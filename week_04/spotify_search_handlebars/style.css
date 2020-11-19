@@ -3,8 +3,8 @@
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
 }
 
@@ -23,16 +23,52 @@ img {
 
 }
 
+img:hover {
+    opacity: 40%;
+}
+
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: lavenderblush;
+}
+
 body {
     background: gainsboro;
 }
 
 header {
     display: flex;
-    height: 150px;
+    height: 100px;
+    box-shadow: 60px -16px teal;
+    width: 400px;
+    margin: 20px;
+    margin-left: 40px;
+    border: black 2px solid;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 45px;
+    color: rosybrown;
+}
+
+.lineup {
+    width: 200px;
+    margin: 20px;
+    margin-left: 40px;
+}
+
+#results-container {
+    display: inline-grid;
+    grid-gap: 1rem;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
