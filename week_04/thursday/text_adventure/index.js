@@ -8,9 +8,11 @@ const rl = readline.createInterface({
 });
 
 const story = {
-    q: `It is the first day of the year 2021, you wake up after a long slumber with a hangover.
+    q: `It is the first day of the year 2021, 
+you wake up after a long slumber with a hangover.
 Around you is no one. 
 "ah right.. Covid". 
+
 There are stale chips on the table. 
 "hm" you think "I ám hungry..." 
 what do you do? (eat/throw) `,
