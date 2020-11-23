@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+const chalk = require("chalk");
 const http = require("http");
 const querystring = require("querystring");
 const htmlForGet = `
@@ -36,14 +36,21 @@ const server = http.createServer((req, res) => {
         });
 
         req.on("end", () => {
-            console.log("body before parse:", body);
+            // console.log("body before parse:", body);
             let parsedBody = querystring.parse(body);
-            console.log("parsed:", parsedBody);
+            console.log(chalk`{${parsedBody.color}.bold parsed: ${parsedBody.first}}`);
             res.setHeader("Content-Type", "text/html");
             res.statusCode = 200;
             res.write(
-                `<a style="color: inherit" href= "/"><h1 style="color:${parsedBody.color}">thanks for your submit :) ${parsedBody.first}</h1></a>`
+                ` 
+                <!doctype html>
+                <html>
+                <title> ${parsedBody.first}</title>
+                <a style="color: ${parsedBody.color}" href= "/"> ${parsedBody.first} </a>
+                </html>
+                `
             );
+           
             res.end();
         });
     }
