@@ -1,14 +1,29 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const { projectList } = require("./part2");
 
 http.createServer((req, res) => {
+    req.on("error", (err) => console.log("Req Error,", err));
+    res.on("error", (err) => console.log("ResError,", err));
+
     if (req.method != "GET") {
         res.statusCode = 405; // method not allowed
         return res.end();
     }
 
-    // gives us the full path of where the user is trying to go to
+    if (req.url == "/") {
+        const body = projectList();
+        res.write(`
+            <!DOCTYPE html>
+            <html>
+            <title>Portfolio</title>
+            ${body}
+            </html>
+        `);
+        return res.end();
+    }
+
     const filePath = __dirname + "/projects" + req.url;
 
     if (!path.normalize(filePath).startsWith(__dirname + "/projects")) {
@@ -26,10 +41,9 @@ http.createServer((req, res) => {
             res.statusCode = 404; // not found
             return res.end();
         }
-        // if we make it at this point in the code, then that means there'a match
-        // we have to check whether it's a file or a directory
+
         if (stats.isFile()) {
-            console.log("It's a file!");
+            // console.log("It's a file!");
             let dynamicValue = path.extname(filePath);
             let extensions = {
                 ".html": "text/html",
@@ -41,14 +55,13 @@ http.createServer((req, res) => {
                 ".png": "image/png",
                 ".svg": "image/svg+xml",
             };
-            const isFileReadStream = fs.createReadStream(
-                filePath
-            );
             res.setHeader("Content-Type", extensions[dynamicValue]);
+
+            const isFileReadStream = fs.createReadStream(filePath);
             isFileReadStream.pipe(res);
 
-            isFileReadStream.on("error", (err)=> {
-                console.log(err);
+            isFileReadStream.on("error", (err) => {
+                console.log("line 49", err);
                 res.statusCode = 500;
                 res.end();
             });
@@ -65,20 +78,14 @@ http.createServer((req, res) => {
                 readStreamHtml.pipe(res);
 
                 readStreamHtml.on("error", (err) => {
-                    console.log(err);
+                    console.log("line 66", err);
                     res.statusCode = 500;
                     res.end();
                 });
             } else {
-                // fs.writeFileSync('filepath.txt', "test") ;
-                res.statusCode=302;
-                res.setHeader('Location', req.url + '/');
+                res.statusCode = 302;
+                res.setHeader("Location", req.url + "/");
                 res.end();
-
-                // if it doesn't end with slash, redirect to req.url with the slash at the end!
-                // set the correct header that causes a redirect
-                // set the staus code for 302
-                // send a response
             }
         }
     });
