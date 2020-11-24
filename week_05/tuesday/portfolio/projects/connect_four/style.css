@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+}
+
+body {
+    transition: all 1s;
+    background-color: rgba(148, 187, 233, 1);
+}
+
+#board {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.slot {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(225, 125, 250, 0);
+    justify-content: center;
+}
+
+/* holes  */
+.hole {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px dotted white;
+    position: relative;
+    align-self: center;
+    transition: all 0.5s;
+}
+
+.player1 .hole {
+    border: rgb(94, 156, 228) 5px solid;
+}
+
+.player2 .hole {
+    border: rgb(245, 120, 174) 5px solid;
+}
+
+.player1Select .hole {
+    border: rgb(94, 156, 228) 2px dotted;
+}
+
+.player2Select .hole {
+    border: rgb(245, 120, 174) 2px dotted;
+}
+
+/* winning message */
+h1 {
+    font: small-caps bold 24px/1 sans-serif;
+    color: white;
+    background-color: black;
+}
+
+header {
+    height: 40px;
+    width: 100%;
+}
+
+#restart {
+    font: small-caps bold 24px/1 sans-serif;
+    z-index: 100;
+    padding: 10px;
+    transition: background-color 4s ease;
+}
+
+#restart:hover {
+    background-color: transparent;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+#redMes {
+    position: fixed;
+    visibility: hidden;
+    z-index: 100;
+    color: rgb(238, 174, 202);
+    width: 300px;
+    text-align: center;
+    margin-top: -10px;
+    transition: all 10s;
+}
+
+#blueMes {
+    position: fixed;
+    width: 300px;
+    visibility: hidden;
+    z-index: 100;
+    text-align: center;
+    margin-top: -10px;
+    color: rgba(148, 187, 233);
+    transition: all 10s;
+}
+
+/* scoreboard */
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+#scoreboard {
+    display: flex;
+    font: small-caps bold 15px/1 sans-serif;
+    margin: 20px;
+}
+
+#redscore {
+    border: rgb(245, 120, 174) 2px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bluescore {
+    border: rgb(94, 156, 228) 2px solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#resetScore {
+    margin-left: 10px;
+    padding-top: 30px;
+}
+
+/* //animalgif animation */
+#bat {
+    position: fixed;
+    bottom: 100%;
+    transition: all 8s;
+    z-index: 3000;
+}
+
+#cat {
+    position: fixed;
+    right: 100%;
+    transition: all 10s;
+    z-index: 3000;
+}
+
+#unicorn {
+    position: fixed;
+    top: 100%;
+    transition: all 10s;
+    z-index: 3000;
+}
+
+#dance {
+    position: fixed;
+    top: 100%;
+    right: 60%;
+    transition: all 10s;
+}
+
+#confetti {
+    position: fixed;
+    top:0;
+    left:0;
+    width:25%;
+    height: 100% ;
+    visibility: hidden;
+    transition: all 10s;
+}
+
+#confetti2 {
+    position: fixed;
+    top:0;
+    right:0;
+    width:25%;
+    height: 100%;
+    visibility: hidden;
+    transition: all 10s;
+}
+
+#doggo{
+    position: fixed;
+    top: 100%;
+    right: 15%;
+    transition: all 10s;
+}
