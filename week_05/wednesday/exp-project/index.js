@@ -24,8 +24,8 @@ app.use((req, res, next) => {
 app.get("/cookie", (req, res) => {
     res.send(`
     <form method='POST'>
-        <h1>This portfolio uses cookies</h1>
-        <h2>Do you accept?</h2>
+    <h1>This portfolio uses cookies</h1>
+    <h2>Do you accept?</h2>
     <input type="checkbox" name="checkbox">
     <h3>checking this means yes</h3>
     <button> submit </submit>
