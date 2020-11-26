@@ -1,6 +1,22 @@
-var express = require("express");
-var app = express();
-var cookieParser = require("cookie-parser");
+const express = require("express");
+const app = express();
+const cookieParser = require("cookie-parser");
+const basicAuth = require("basic-auth");
+
+const auth = function(req,res,next) {
+    const creds= basicAuth(req);
+    if (!creds || creds.name != "Dee" || creds.pass != "Cracks") {
+        res.setHeader(
+            "WWW-Authenticate",
+            "Basic realm = enter your credentials to see this stuff."
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
+
+app.use('/ticker', auth);
 
 app.use(
     express.urlencoded({
