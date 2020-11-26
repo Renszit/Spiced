@@ -1,5 +1,3 @@
-/* colors: https://coolors.co/104547-493843-ccfccb-a49694-b7c0ee */
-
 
 body {
     background-color: #B7C0EE;
@@ -32,15 +30,17 @@ img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    box-shadow:  9px 9px 0px 1px #493843
 }
 
 a {
     text-decoration: none;
-    color: #A49694;
+    color: #CCFCCB;
 }
 
 a:visited {
-    color: #CCFCCB;
+    
+    color: #A49694;
 }
 
 img:hover {
