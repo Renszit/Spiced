@@ -1,11 +1,31 @@
+/* colors: https://coolors.co/104547-493843-ccfccb-a49694-b7c0ee */
+
 
 body {
-    background-color: grey;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #B7C0EE;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
-    
+    color: #A49694;
 }
 
+#welcome {
+    font-size: 50px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.welcomeMessage {
+    margin-left: 40px;
+}
+
+#projects {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 110px;
+    padding: 10px;
+}
 
 img {
     border-radius: 50%;
@@ -14,7 +34,29 @@ img {
     object-fit: cover;
 }
 
-#projectsContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+a {
+    text-decoration: none;
+    color: #A49694;
 }
+
+a:visited {
+    color: #CCFCCB;
+}
+
+img:hover {
+    height:110px;
+    width: 110px;
+}
+
+#projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: 10px;
+}
+

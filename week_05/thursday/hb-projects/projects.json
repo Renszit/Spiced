@@ -10,5 +10,9 @@
     {
         "name": "Ticker",
         "directory": "ticker"
+    },
+    {
+        "name": "Spotify Search",
+        "directory":"spotify_search_handlebars"
     }
 ]

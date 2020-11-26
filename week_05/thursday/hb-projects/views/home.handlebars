@@ -1,13 +1,14 @@
-<h1> Welcome! </h1>
-<h2>this is my portfolio</h2>
-<h3>take a look around!</h3>
+<h1 id= 'welcome'> Welcome! </h1>
+<h3 class="welcomeMessage">this is my portfolio, take a look!</h3>
 
 <div id="projectsContainer">
 {{#projects}}
+<div id="projects">
 <a href="{{directory}}">
     <img src="{{directory}}/screenshot.png" alt="screenshot">
     <h3>{{name}}</h3>
 </a>
+</div>
 {{/projects}}   
 </div>
 
