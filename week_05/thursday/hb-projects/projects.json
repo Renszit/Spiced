@@ -1,0 +1,14 @@
+[
+    {
+        "name": "connect four",
+        "directory": "connect_four"
+    },
+    {
+        "name": "Incremental Search",
+        "directory": "incremental_search"
+    },
+    {
+        "name": "Ticker",
+        "directory": "ticker"
+    }
+]
