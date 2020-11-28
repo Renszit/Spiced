@@ -1,13 +1,18 @@
-<div class='welcomeGrid'>
-<a href="/"><h1 class="welcome"> {{selectedProject.name}}!</h1></a>
-<h3 class="welcomeMessage">click above to go back to overview, obviously</h3>
-</div>
-{{>projects}}
-<div id ="descriptionProjectsContainer">
-    <div class="projectDescription">
-<img class="descriptionImg" src="/{{selectedProject.directory}}/screenshot.png" alt="screenshot">
-<p>{{selectedProject.description}}</p>
-<a href="/{{selectedProject.directory}}" target="_blank">Check it out</a>
+<div class="descriptionGrid">
+    <div class='welcomeGrid'>
+        <a href="/"><h1 class="welcome">This is {{selectedProject.name}}!</h1></a>
+        <h3 class="welcomeMessage">click above to go back to overview/homepage, obviously</h3>
+    </div>
 
-</div>
+    <div id="descriptionContainer">
+        {{>projects}}
+    </div>
+
+    <div id ="descriptionProjectsContainer">
+        <div class="projectDescription">
+           <a href="/{{selectedProject.directory}}" target="_blank"> <img class="descriptionImg" src="/{{selectedProject.directory}}/screenshot.png" alt="screenshot"></a>
+            <p>{{selectedProject.description}}</p>
+            <a href="/{{selectedProject.directory}}" target="_blank">Check it out</a>
+        </div>
+    </div>  
 </div>
