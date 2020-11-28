@@ -1,14 +1,8 @@
-<h1 id= 'welcome'> Welcome! </h1>
-<h3 class="welcomeMessage"> } this is my portfolio, have a look! {</h3>
-
+<div class='welcomeGrid'>
+<h1 class= 'welcome'> Welcome! </h1>
+<h3 class="welcomeMessage"> this is my portfolio, have a look!</h3>
+</div>  
 <div id="projectsContainer">
-{{#projects}}
-<div id="projects">
-<a href="{{directory}}">
-    <img src="{{directory}}/screenshot.png" alt="screenshot">
-    <h3>{{name}}</h3>
-</a>
-</div>
-{{/projects}}   
+{{>projects home=true}}
 </div>
 
