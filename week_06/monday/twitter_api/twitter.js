@@ -2,13 +2,6 @@ const https = require("https");
 const { twitterKey, twitterSecret } = require("./secrets");
 
 module.exports.getToken = (callback) => {
-    // here we are requesting the bearer token from twitter
-    // this is an ASYNCHRONOUS process -> we will need to wait
-    // until it's finished before moving on!
-    // this is why it takes a callback!
-    // we'll write this function together
-    // console.log('getToken function is correctly called');
-
     const creds = `${twitterKey}:${twitterSecret}`;
     const encodedCreds = Buffer.from(creds).toString("base64");
 
@@ -31,7 +24,7 @@ module.exports.getToken = (callback) => {
         res.on("data", (chunk) => (body += chunk));
         res.on("end", () => {
             const parsedBody = JSON.parse(body);
-            console.log("parsedBody:", parsedBody);
+            // console.log("parsedBody:", parsedBody);
             callback(null, parsedBody.access_token);
         });
     }
@@ -41,16 +34,47 @@ module.exports.getToken = (callback) => {
 };
 
 module.exports.getTweets = (bearerToken, callback) => {
-    // is going to look very similar to the get token function
-    // Once we have our bearer token, we can get the tweets from twitter
-    // this is also an ASYNCHRONOUS process - > Hence another cb
-    // we'll need to send the bearer token EVERY time we do this.
-    // You are going to write this function yo0urselves!
+    const getTweetsConfig = {
+        method: "GET",
+        host: "api.twitter.com",
+        path:
+            "/1.1/statuses/user_timeline.json?screen_name=DyingScene&tweet_mode=extended",
+        headers: {
+            Authorization: `Bearer ${bearerToken}`,
+        },
+    };
+
+    function httpsRequestCallback(res) {
+        if (res.statusCode !== 200) {
+            callback(res.statusCode);
+            return;
+        }
+        let body = "";
+        res.on("data", (chunk) => (body += chunk));
+        res.on("end", () => {
+            const parsedTweet = JSON.parse(body);
+            // console.log("parsedtweet:", parsedTweet);
+            callback(null, parsedTweet);
+        });
+    }
+
+    const req = https.request(getTweetsConfig, httpsRequestCallback);
+    req.end("grant_type=client_credentials");
 };
 
 module.exports.filterTweets = (tweets) => {
-    // synchronous, no callback
-    // once we have our tweets, we'll pass them into this funcition
-    // to filter and sort them into the format we need
-    // This is also for you to complete.
+    let data = [];
+
+    for (let i = 0; i < tweets.length; i++) {
+        if (tweets[i].entities.urls.length === 1) {
+            let url = tweets[i].entities.urls[0].url;
+            let tweet = tweets[i].full_text;
+
+            data.push({
+                link: url,
+                text: tweet,
+            });
+        }
+    }
+    return data;
 };

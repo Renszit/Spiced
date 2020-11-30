@@ -25,9 +25,7 @@ app.get("/data.json", (req, res) => {
             // 3. filter and sort them into the format you need
             // filter out all tweets without a link
             // cut it up so only link and title remain
-
             const filteredTweets = filterTweets(tweets);
-            
             // 4. send data back as JSON
             res.json(filteredTweets);
         });
