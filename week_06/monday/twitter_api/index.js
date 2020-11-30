@@ -12,7 +12,7 @@ app.get("/data.json", (req, res) => {
             console.log("err getting bearer token", err);
             return;
         }
-        console.log("bearerToken:', bearerToken");
+        // console.log("bearerToken:', bearerToken");
 
         // 2. use this bearer token to get tweets from twitter
         getTweets(bearerToken, (err, tweets) => {
@@ -20,7 +20,7 @@ app.get("/data.json", (req, res) => {
                 console.log("err getting tweets", err);
                 return;
             }
-            console.log("tweets:", tweets);
+            // console.log("tweets:", tweets);
 
             // 3. filter and sort them into the format you need
             // filter out all tweets without a link

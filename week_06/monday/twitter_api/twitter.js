@@ -38,7 +38,7 @@ module.exports.getTweets = (bearerToken, callback) => {
         method: "GET",
         host: "api.twitter.com",
         path:
-            "/1.1/statuses/user_timeline.json?screen_name=DyingScene&tweet_mode=extended",
+            "/1.1/statuses/user_timeline.json?screen_name=REALpunknews&tweet_mode=extended",
         headers: {
             Authorization: `Bearer ${bearerToken}`,
         },
@@ -69,10 +69,12 @@ module.exports.filterTweets = (tweets) => {
         if (tweets[i].entities.urls.length === 1) {
             let url = tweets[i].entities.urls[0].url;
             let tweet = tweets[i].full_text;
+            let mediaUrl = tweets[i].entities.media[0].url;
+            let cleanTweet = tweet.replace(mediaUrl, " ");
 
             data.push({
                 link: url,
-                text: tweet,
+                text: cleanTweet,
             });
         }
     }
