@@ -56,12 +56,13 @@ img:hover {
 
 a {
     text-decoration: none;
-    color: #ccfccb;
+    color: #104547;
 }
 
 a:visited {
     color: #a49694;
 }
+
 
 /* homepage flex container */
 
@@ -70,7 +71,7 @@ a:visited {
     flex-wrap: wrap;
     margin-top: 20px;
     margin-left: 20px;
-    grid-area:  2 / 1 / 4 / 5;
+    grid-area: 2 / 1 / 4 / 5;
 }
 
 #descriptionContainer {
@@ -78,7 +79,7 @@ a:visited {
     width: 200px;
     height: 240px;
     margin-left: 30px;
-    background-color: #CCFCCB;
+    background-color: #ccfccb;
     border: 1px dotted #104547;
 }
 
