@@ -1,41 +1,55 @@
 const fs = require("fs");
 const myPath = __dirname;
-let { readdir, stat } = require("fs");
-const { promisify } = require("util");
-// const { readdir, stat } = require("fs").promises;
-
-readdir = promisify(readdir);
-stat = promisify(stat);
-
-// console.log(myPath);
 
 // Part 1
 
+logSizes(`${__dirname}/files`).then(() => console.log("done!"));
+
 function logSizes(path) {
-    fs.readdir(path, { withFileTypes: true }, (err, content) => {
-        if (err) {
-            console.log("error readdir", err);
-            return;
-        }
-        // console.log("content:", content);
-        for (let i = 0; i < content.length; i++) {
-            if (content[i].isDirectory()) {
-                logSizes(`${path}/${content[i].name}`);
+    return fs.promises.readdir(path, { withFileTypes: true }).then((files) => {
+        const promises = [];
+        for (let i = 0; i < files.length; i++) {
+            const nextPath = `${path}/${files[i].name}`;
+            if (files[i].isDirectory()) {
+                promises.push(logSizes(nextPath));
             }
-            if (content[i].isFile()) {
-                fs.stat(`${path}/${content[i].name}`, (error, stats) => {
-                    if (error) {
-                        console.log("error in for loop", error);
-                        return;
-                    }
-                    console.log(`${path}/${content[i].name} : ${stats.size}`);
-                });
+            if (files[i].isFile()) {
+                promises.push(
+                    fs.promises.stat(nextPath).then((stats) => {
+                        console.log(`${nextPath}: ${stats.size}`);
+                    })
+                );
             }
         }
+        return Promise.all(promises);
     });
 }
+// before:
 
-logSizes(myPath);
+// fs.readdir(path, { withFileTypes: true }.then() (err, content) => {
+//         if (err) {
+//             console.log("error readdir", err);
+//             return;
+//         }
+//         // console.log("content:", content);
+//         for (let i = 0; i < content.length; i++) {
+//             if (content[i].isDirectory()) {
+//                 logSizes(`${path}/${content[i].name}`);
+//             }
+//             if (content[i].isFile()) {
+//                 fs.stat(`${path}/${content[i].name}`, (error, stats) => {
+//                     if (error) {
+//                         console.log("error in for loop", error);
+//                         return;
+//                     }
+//                     console.log(`${path}/${content[i].name} : ${stats.size}`);
+//                 });
+//             }
+//         }
+//     });
+// }
+
+// logSizes(myPath);
 
 //part 2
 

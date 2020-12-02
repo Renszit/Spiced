@@ -1,4 +1,3 @@
-
 const https = require("https");
 const { twitterKey, twitterSecret } = require("./secrets");
 
@@ -11,8 +10,9 @@ module.exports.getToken = () => {
             host: "api.twitter.com",
             path: "/oauth2/token",
             headers: {
-                Authorization : `Basic ${encodedCreds}`,
-                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                Authorization: `Basic ${encodedCreds}`,
+                "Content-Type":
+                    "application/x-www-form-urlencoded;charset=UTF-8",
             },
         };
 
@@ -34,14 +34,12 @@ module.exports.getToken = () => {
     });
 };
 
-
 module.exports.getTweets = (bearerToken, account) => {
     return new Promise((resolve, reject) => {
         const getTweetsConfig = {
             method: "GET",
             host: "api.twitter.com",
-            path:
-                `/1.1/statuses/user_timeline.json?screen_name=${account}&tweet_mode=extended`,
+            path: `/1.1/statuses/user_timeline.json?screen_name=${account}&tweet_mode=extended`,
             headers: {
                 Authorization: `Bearer ${bearerToken}`,
             },
@@ -64,7 +62,6 @@ module.exports.getTweets = (bearerToken, account) => {
     });
 };
 
-
 module.exports.filterTweets = (tweets) => {
     let data = [];
     for (let i = 0; i < tweets.length; i++) {
@@ -72,15 +69,12 @@ module.exports.filterTweets = (tweets) => {
             let tweet = tweets[i].full_text;
             let url = tweets[i].entities.urls[0].url;
             let source = tweets[i].user.name;
-            // console.log(tweets[i]);
+            // console.log(tweets[i].entities.urls[0]);
             let cleanTweet = tweet.replace(url, "");
-
-            
-
-            data.push ({
+            data.push({
                 link: url,
-                text: `${cleanTweet}... source: ${source}`
-            });    
+                text: `${cleanTweet}... source: ${source}`,
+            });
         }
     }
     return data;
