@@ -73,7 +73,7 @@ module.exports.filterTweets = (tweets) => {
             let cleanTweet = tweet.replace(url, "");
             data.push({
                 link: url,
-                text: `${cleanTweet}... source: ${source}`,
+                text: `from ${source} : ${cleanTweet}...`,
             });
         }
     }

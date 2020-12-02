@@ -8,9 +8,9 @@ app.get("/data.json", (req, res) => {
     // console.log("request made for data.json");
     getToken().then((bearerToken) => {
         return Promise.all([
-            getTweets(bearerToken, "REALpunknews"),
-            getTweets(bearerToken, "Punknews"),
-            getTweets(bearerToken, "HardDriveMag"),
+            getTweets(bearerToken, "NOS"),
+            getTweets(bearerToken, "BBCbreaking"),
+            getTweets(bearerToken, "nytimes"),
         ])
             .then((results) => {
                 let realPunkNews = results[0];
