@@ -2,7 +2,7 @@
     var moreButton = $("#moreButton");
     var nextUrl;
 
-    var results; 
+    var results;
     // initial ajax reguest
 
     //trigger initial ajax request
@@ -47,7 +47,8 @@
                     }
                     redirection = response.items[i].external_urls.spotify;
                     myHtml +=
-                        "<div>" +"<a href=" +
+                        "<div>" +
+                        "<a href=" +
                         redirection +
                         ">" +
                         "<img src=" +
@@ -60,7 +61,8 @@
                         "<div>" +
                         response.items[i].name +
                         "</div>" +
-                        "</a>" + "</div>";
+                        "</a>" +
+                        "</div>";
 
                     $("#results-container").html(myHtml);
                 }
@@ -97,7 +99,45 @@
         $.ajax({
             method: "GET",
             url: nextUrl,
-            success: results,
+            success: function (response) {
+                response = response.artists || response.albums;
+                var myHtml = "";
+                var redirection = "";
+
+                for (var i = 0; i < response.items.length; i++) {
+                    var imageUrl =
+                        "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png";
+                    if (response.items[i].images[0]) {
+                        imageUrl = response.items[i].images[0].url;
+                    }
+                    redirection = response.items[i].external_urls.spotify;
+                    myHtml +=
+                        "<div>" +
+                        "<a href=" +
+                        redirection +
+                        ">" +
+                        "<img src=" +
+                        imageUrl +
+                        ">" +
+                        "</a>" +
+                        "<a href=" +
+                        redirection +
+                        ">" +
+                        "<div>" +
+                        response.items[i].name +
+                        "</div>" +
+                        "</a>" +
+                        "</div>";
+
+                    $("#results-container").append(myHtml);
+                }
+                nextUrl =
+                    response.next &&
+                    response.next.replace(
+                        "api.spotify.com/v1/search",
+                        "spicedify.herokuapp.com/spotify"
+                    );
+            },
         });
     });
 })();
