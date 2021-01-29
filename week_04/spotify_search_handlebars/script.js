@@ -63,7 +63,10 @@
                         "</div>" +
                         "</a>" +
                         "</div>";
-
+                }
+                if (location.search.indexOf("scroll=infinite") > -1) {
+                    $("#results-container").append(myHtml);
+                } else {
                     $("#results-container").html(myHtml);
                 }
                 nextUrl =
@@ -87,8 +90,6 @@
                     url: nextUrl,
                     success: results,
                 });
-                // console.log("at bottom of page!");
-                // moreButton.css({ visibility: "hidden" }),
             } else {
                 checkScrollPosition();
             }
